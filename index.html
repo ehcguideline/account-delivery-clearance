@@ -1,53 +1,227 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
 <title>Official Work Summary & Secure Delivery</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
 <style>
-* { box-sizing: border-box; margin:0; padding:0; word-wrap: break-word; }
-body { font-family:'Inter',sans-serif; background: linear-gradient(135deg, #0b141a, #0f2027); color:#e8f6f3; padding:15px; overflow-x:hidden; }
-.container { max-width:1100px; margin:auto; }
-header { text-align:center; margin-bottom:20px; }
-header h1 { font-size:1.4rem; margin-bottom:6px; }
-header p { font-size:0.85rem; opacity:0.85; }
-.card { background: rgba(255,255,255,0.05); border-radius: 12px; padding:15px; margin-bottom:15px; box-shadow:0 8px 20px rgba(0,0,0,0.25); word-wrap:break-word; }
-.grid { display:grid; grid-template-columns:1fr; gap:12px; }
-@media (min-width:768px) { .grid { grid-template-columns:1fr 1fr; } }
-.card h2 { font-size:0.95rem; margin-bottom:10px; color:#00ffd5; }
-.card p, li { font-size:0.82rem; line-height:1.5; opacity:0.9; word-break:break-word; }
-ul { padding-left:18px; }
-.badge { display:inline-block; background:#0bbcd6; color:#002b36; padding:4px 10px; border-radius:18px; font-size:0.7rem; margin-top:6px; }
-button { width:100%; padding:12px; border:none; border-radius:8px; font-size:0.85rem; font-weight:600; cursor:pointer; background:linear-gradient(135deg,#00ffd5,#00b3a4); color:#002b36; box-shadow:0 5px 15px rgba(0,255,213,0.35); }
-button:hover { opacity:0.9; }
-.info-box { margin-top:12px; padding:12px; border-radius:8px; background: rgba(0,0,0,0.35); }
-footer { margin-top:25px; font-size:0.7rem; opacity:0.7; text-align:center; }
-.modal { position:fixed; inset:0; background:rgba(0,0,0,0.7); display:none; align-items:center; justify-content:center; padding:15px; z-index:9999; }
-.modal-content { background:#0f2027; padding:15px; border-radius:12px; max-width:380px; width:100%; word-wrap:break-word; }
-.modal-content h3 { font-size:0.95rem; margin-bottom:8px; }
-.modal-content p { font-size:0.82rem; margin-bottom:12px; }
-.modal-actions { display:flex; gap:8px; flex-wrap:wrap; }
-.modal-actions button { flex:1; min-width:100px; }
-.cancel { background:#555; color:#fff; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  word-wrap: break-word;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #0b141a, #0f2027);
+  color: #e8f6f3;
+  padding: 15px;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 1.4rem;
+  margin-bottom: 6px;
+}
+
+header p {
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+.card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  word-wrap: break-word;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width:768px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.card h2 {
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  color: #00ffd5;
+}
+
+.card p,
+li {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  opacity: 0.9;
+  word-break: break-word;
+}
+
+ul {
+  padding-left: 18px;
+}
+
+.badge {
+  display: inline-block;
+  background: #0bbcd6;
+  color: #002b36;
+  padding: 4px 10px;
+  border-radius: 18px;
+  font-size: 0.7rem;
+  margin-top: 6px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(135deg,#00ffd5,#00b3a4);
+  color: #002b36;
+  box-shadow: 0 5px 15px rgba(0,255,213,0.35);
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.info-box {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  background: rgba(0,0,0,0.35);
+}
+
+footer {
+  margin-top: 25px;
+  font-size: 0.7rem;
+  opacity: 0.7;
+  text-align: center;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  z-index: 9999;
+}
+
+.modal-content {
+  background: #0f2027;
+  padding: 15px;
+  border-radius: 12px;
+  max-width: 380px;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.modal-content h3 {
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+
+.modal-content p {
+  font-size: 0.82rem;
+  margin-bottom: 12px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.modal-actions button {
+  flex: 1;
+  min-width: 100px;
+}
+
+.cancel {
+  background: #555;
+  color: #fff;
+}
 </style>
 </head>
+
 <body>
+
 <div class="container">
+
 <header>
   <h1>Official Work Summary & Secure Delivery Notice</h1>
   <p>Authorized Service Documentation</p>
 </header>
+
 <div class="grid">
+
+  <!-- Client Information -->
   <div class="card">
     <h2>Client & Account Information</h2>
-    <p><strong>Client Name:</strong> সু প্রিয়া,</p>
-    <p><strong>Platform:</strong> Instagram</p>
-    <p><strong>Target Profile username:</strong> @saye_ed17</p>
-    <p><strong>Target Profile URL:</strong> <a href="https://www.instagram.com/saye_ed17?igsh=czI5dmI3ZzRyOWVu" target="_blank" style="color:#00ffd5; text-decoration:none;">Go to profile</a></p>
+
+    <p>
+      <strong>Client Name:</strong>
+      Md Sakibul Islam Prangon
+    </p>
+
+    <p>
+      <strong>Platform:</strong>
+      Facebook and Imo
+    </p>
+
+    <p>
+      <strong>Target Number:</strong>
+      +880 1939-361 090
+    </p>
+
+    <p>
+      <strong>Target Profile:</strong>
+      <a
+        href="https://www.facebook.com/bethi.akter.763519"
+        target="_blank"
+        rel="noopener noreferrer"
+        style="color:#00ffd5; text-decoration:none;"
+      >
+        Go to targeted profile
+      </a>
+    </p>
+
     <span class="badge">Service Completed</span>
   </div>
+
+
+  <!-- Scope of Work -->
   <div class="card">
     <h2>Scope of Work (Summary)</h2>
+
     <ul>
       <li>Client authorization & intake verification</li>
       <li>Account security assessment</li>
@@ -55,53 +229,149 @@ footer { margin-top:25px; font-size:0.7rem; opacity:0.7; text-align:center; }
       <li>Restoration within approved scope</li>
     </ul>
   </div>
+
 </div>
+
+
+<!-- Payment Breakdown -->
 <div class="card">
+
   <h2>Payment Breakdown</h2>
+
   <ul>
-    <li>Initial Fee: 11$ (1,430 BDT)</li>
-    <li>2-factor Bypass: 7$ (910 BDT)</li>
-    <li>Extra Restriction Removal Cost: 3.5$ (455 BDT)
-    <li>In total amount: 21.5$ (2,795 BDT)</li>
-    <li>Already paid: 18$ (2,340 BDT)</li>
-    <li>Remaining Due: 3.5$ (455 BDT)</li>
+    <li>Initial Service Amount: $27</li>
+
+    <li>
+      Extra Security Checkup Cost: $6
+    </li>
+
+    <li>
+      Total Amount: $33
+    </li>
+
+    <li>
+      Already Paid: $27
+    </li>
+
+    <li>
+      Remaining Due: $6
+    </li>
   </ul>
+
 </div>
+
+
+<!-- Secure Delivery -->
 <div class="card">
+
   <h2>Secure Delivery (Locked)</h2>
-  <p>Protected access information is restricted until outstanding dues are cleared.</p>
+
+  <p>
+    Protected access information is restricted until outstanding dues are cleared.
+  </p>
+
   <div class="info-box" id="lockedBox">
-    <p><strong>Contact:</strong> ***********</p>
-    <p><strong>Email:</strong> ***********</p>
-    <p><strong>Password:</strong> ***********</p>
-    <button onclick="openModal()">🔐 Unlock Delivery & Access Information</button>
-  </div>
-  <div class="info-box" id="unlockedBox" style="display:none;">
-    <p><strong>Email:</strong> abusayed311**@gmail.com</p>
-    <p><strong>Password:</strong> A***690***</p>
-  </div>
-</div>
-<footer>
-Legal & Compliance Disclaimer: This document serves as an official service delivery notice. All actions were performed with explicit client authorization. No credentials are retained.
-</footer>
-</div>
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <h3>Payment Verification Required</h3>
+
     <p>
-      Access to protected delivery information is gated pending confirmation of outstanding payment.<br>
-      Click "Proceed" to start the payment process and be redirected to the official payment page.
+      <strong>Contact:</strong>
+      ***********
     </p>
-    <div class="modal-actions">
-      <button class="cancel" onclick="closeModal()">Cancel</button>
-      <button onclick="startPayment()">Proceed to Payment</button>
-    </div>
+
+    <p>
+      <strong>Email:</strong>
+      bet****09@gmail.com
+    </p>
+
+    <p>
+      <strong>Password:</strong>
+      09*****n@
+    </p>
+
+    <button onclick="openModal()">
+      🔐 Unlock Delivery & Access Information
+    </button>
+
   </div>
+
+
+  <div class="info-box" id="unlockedBox" style="display:none;">
+
+    <p>
+      <strong>Email:</strong>
+      bet****09@gmail.com
+    </p>
+
+    <p>
+      <strong>Password:</strong>
+      09*****n@
+    </p>
+
+  </div>
+
 </div>
+
+
+<footer>
+  Legal & Compliance Disclaimer:
+  This document serves as an official service delivery notice.
+  All actions were performed with explicit client authorization.
+  No credentials are retained.
+</footer>
+
+</div>
+
+
+<!-- Payment Modal -->
+<div class="modal" id="modal">
+
+  <div class="modal-content">
+
+    <h3>Payment Verification Required</h3>
+
+    <p>
+      Access to protected delivery information is gated pending confirmation
+      of outstanding payment.<br><br>
+
+      Click "Proceed" to start the payment process and be redirected
+      to the official payment page.
+    </p>
+
+    <div class="modal-actions">
+
+      <button
+        class="cancel"
+        onclick="closeModal()"
+      >
+        Cancel
+      </button>
+
+      <button onclick="startPayment()">
+        Proceed to Payment
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
 <script>
-function openModal() { document.getElementById('modal').style.display = 'flex'; }
-function closeModal() { document.getElementById('modal').style.display = 'none'; }
-function startPayment() { window.location.href = 'https://ehcguideline.github.io/payment-from/'; }
+
+function openModal() {
+  document.getElementById('modal').style.display = 'flex';
+}
+
+function closeModal() {
+  document.getElementById('modal').style.display = 'none';
+}
+
+function startPayment() {
+  window.location.href =
+    'https://ehcguideline.github.io/payment-from/';
+}
+
 </script>
+
 </body>
 </html>
